@@ -3,7 +3,7 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="android:colorPrimary">@color/dark_blue</item>
         <item name="android:colorBackground">@color/blue</item>
         <item name="android:statusBarColor">@color/dark_blue</item>
     </style>

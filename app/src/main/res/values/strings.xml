@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sisu</string>
+    
+    <string name="main_instruction">Escolha o curso e a\ninstituição desejada :)</string>
 </resources>

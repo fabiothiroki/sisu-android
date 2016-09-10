@@ -14,17 +14,17 @@ import retrofit2.Response;
  */
 public class MainPresenter {
 
-    private MainActivity view;
+    private MainContract view;
     private CourseService service;
 
-    public MainPresenter(MainActivity view, CourseService service) {
+    public MainPresenter(MainContract view, CourseService service) {
         this.view = view;
         this.service = service;
     }
 
     public void loadCourses(){
 
-        // TODO: loading state
+        view.showProgress(true);
 
         Call<CourseResponse> responseCall = this.service.getApi().getCourses();
 
@@ -33,6 +33,7 @@ public class MainPresenter {
             @Override
             public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
 
+                view.showProgress(false);
                 Log.e(">>", response.body().toString());
 
             }
@@ -40,6 +41,7 @@ public class MainPresenter {
             @Override
             public void onFailure(Call<CourseResponse> call, Throwable t) {
 
+                view.showProgress(false);
             }
         });
 
