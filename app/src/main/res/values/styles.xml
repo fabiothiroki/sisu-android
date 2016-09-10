@@ -7,4 +7,11 @@
         <item name="android:colorBackground">@color/blue</item>
     </style>
 
+    <style name="SearchEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:drawablePadding">16dp</item>
+    </style>
+
 </resources>

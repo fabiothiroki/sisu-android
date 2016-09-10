@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Sisu</string>
-    
+
+    <string name="request_try_again">Tentar novamente</string>
+
     <string name="main_instruction">Escolha o curso e a\ninstituição desejada :)</string>
+    <string name="main_search_course">Curso</string>
+    <string name="main_search_institution">Instituição</string>
 </resources>

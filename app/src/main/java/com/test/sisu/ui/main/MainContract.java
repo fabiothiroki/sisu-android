@@ -6,4 +6,6 @@ package com.test.sisu.ui.main;
 public interface MainContract {
 
     void showProgress(boolean show);
+
+    void showRequestErrorMessage(String message);
 }

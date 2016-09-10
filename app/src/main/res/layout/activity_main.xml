@@ -18,7 +18,9 @@
     <ScrollView
         android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
 
         <LinearLayout
@@ -42,6 +44,26 @@
                 android:textColor="@color/white"
                 android:layout_marginTop="86dp"
                 android:gravity="center_horizontal"/>
+            
+            <EditText
+                android:id="@+id/search_course"
+                style="@style/SearchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:hint="@string/main_search_course"
+                android:drawableStart="@drawable/ic_field_curso"
+                android:drawableEnd="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/search_institution"
+                style="@style/SearchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:hint="@string/main_search_institution"
+                android:drawableStart="@drawable/ic_field_instituicao"
+                android:drawableEnd="@drawable/ic_search"/>
 
         </LinearLayout>
 
