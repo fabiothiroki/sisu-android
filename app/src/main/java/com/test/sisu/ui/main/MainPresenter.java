@@ -1,6 +1,12 @@
 package com.test.sisu.ui.main;
 
+import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.test.sisu.models.CourseResponse;
 import com.test.sisu.services.CourseService;
@@ -16,14 +22,20 @@ public class MainPresenter {
 
     private MainContract view;
     private CourseService service;
+    private Context context;
 
     private CourseResponse courseResponse;
 
-    public MainPresenter(MainContract view, CourseService service) {
+    public MainPresenter(MainContract view, CourseService service, Context context) {
         this.view = view;
         this.service = service;
+        this.context = context;
     }
 
+    public void onDestroy() {
+        view = null;
+        context = null;
+    }
 
 
     public void loadCourses(){
@@ -35,7 +47,7 @@ public class MainPresenter {
 
         responseCall.enqueue(new Callback<CourseResponse>() {
             @Override
-            public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
+           public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
 
                 courseResponse = response.body();
                 view.showProgress(false);
@@ -57,6 +69,25 @@ public class MainPresenter {
             @Override
             public void onClick(View view) {
                 loadCourses();
+            }
+        };
+
+    }
+
+    public EditText.OnEditorActionListener onCourseSubmitAction() {
+
+        return new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+
+                    InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
+
+                    return true;
+                }
+
+                return false;
             }
         };
 

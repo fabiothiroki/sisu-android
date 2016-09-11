@@ -37,17 +37,23 @@ public class MainActivity extends AppCompatActivity implements MainContract {
 
         setupPresenter();
         setupEditTexts();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mainPresenter.onDestroy();
     }
 
     private void setupPresenter() {
 
-        mainPresenter = new MainPresenter(this, new CourseService());
+        mainPresenter = new MainPresenter(this, new CourseService(), this);
         mainPresenter.loadCourses();
     }
 
     private void setupEditTexts() {
-
+        searchCourse.setOnEditorActionListener(mainPresenter.onCourseSubmitAction());
     }
 
     @Override

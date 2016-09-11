@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue">
 
 
     <ProgressBar
@@ -53,7 +54,9 @@
                 android:layout_marginTop="30dp"
                 android:hint="@string/main_search_course"
                 android:drawableStart="@drawable/ic_field_curso"
-                android:drawableEnd="@drawable/ic_search" />
+                android:drawableLeft="@drawable/ic_field_curso"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawableRight="@drawable/ic_search" />
 
             <EditText
                 android:id="@+id/search_institution"
@@ -63,7 +66,10 @@
                 android:layout_marginTop="8dp"
                 android:hint="@string/main_search_institution"
                 android:drawableStart="@drawable/ic_field_instituicao"
-                android:drawableEnd="@drawable/ic_search"/>
+                android:drawableLeft="@drawable/ic_field_instituicao"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawableRight="@drawable/ic_search"
+                />
 
         </LinearLayout>
 
