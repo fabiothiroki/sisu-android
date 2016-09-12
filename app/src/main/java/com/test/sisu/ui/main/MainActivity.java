@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.test.sisu.R;
+import com.test.sisu.models.CourseResponse;
 import com.test.sisu.services.CourseService;
 import com.test.sisu.ui.search.SearchActivity;
 
@@ -79,10 +81,11 @@ public class MainActivity extends AppCompatActivity implements MainContract {
     }
 
     @Override
-    public void performCourseSearch(final String course) {
+    public void performCourseSearch(final String course, final CourseResponse response) {
 
         Intent intent = new Intent(this, SearchActivity.class);
         intent.putExtra(SearchActivity.BUNDLE_COURSE, course);
+        intent.putExtra(SearchActivity.BUNDLE_ALL_COURSES, new Gson().toJson(response));
         startActivity(intent);
 
     }

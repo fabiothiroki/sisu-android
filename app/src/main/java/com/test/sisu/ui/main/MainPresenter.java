@@ -83,7 +83,7 @@ public class MainPresenter {
 
                     InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
-                    view.performCourseSearch(textView.getText().toString());
+                    view.performCourseSearch(textView.getText().toString(), courseResponse);
 
                     return true;
                 }
