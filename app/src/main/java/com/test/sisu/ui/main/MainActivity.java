@@ -1,5 +1,6 @@
 package com.test.sisu.ui.main;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 
 import com.test.sisu.R;
 import com.test.sisu.services.CourseService;
+import com.test.sisu.ui.search.SearchActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,6 +76,15 @@ public class MainActivity extends AppCompatActivity implements MainContract {
                 .setAction(R.string.request_try_again, mainPresenter.snackbarClicked())
                 .setActionTextColor(Color.RED)
                 .show();
+    }
+
+    @Override
+    public void performCourseSearch(final String course) {
+
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra(SearchActivity.BUNDLE_COURSE, course);
+        startActivity(intent);
+
     }
 
 

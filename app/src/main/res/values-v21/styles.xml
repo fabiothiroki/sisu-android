@@ -2,10 +2,17 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:colorPrimary">@color/dark_blue</item>
-        <item name="android:colorBackground">@color/blue</item>
+        <item name="colorPrimary">@color/dark_blue</item>
         <item name="android:statusBarColor">@color/dark_blue</item>
+    </style>
+
+    <style name="SearchTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/gray</item>
+        <item name="android:statusBarColor">@color/gray_two</item>
+
+
+        <item name="actionBarStyle">@style/SearchActionBar</item>
+        <item name="android:actionBarStyle">@style/SearchActionBar</item>
     </style>
 
 </resources>

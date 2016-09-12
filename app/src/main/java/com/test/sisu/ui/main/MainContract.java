@@ -8,4 +8,6 @@ public interface MainContract {
     void showProgress(boolean show);
 
     void showRequestErrorMessage(String message);
+
+    void performCourseSearch(String course);
 }

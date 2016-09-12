@@ -4,4 +4,8 @@
     <color name="blue">#30a9de</color>
     <color name="white">#ffffff</color>
     <color name="orange">#fd822a</color>
+    <color name="pumpkin_orange">#ff8212</color>
+    <color name="gray">#f8f8f8</color>
+    <color name="gray_two">#dadada</color>
+    <color name="warm_grey">#9b9b9b</color>
 </resources>
