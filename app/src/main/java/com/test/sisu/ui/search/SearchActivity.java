@@ -79,17 +79,6 @@ public class SearchActivity extends AppCompatActivity implements SearchContract 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-
-        Bundle extras = getIntent().getExtras();
-        String value;
-
-        if (extras != null) {
-            value = extras.getString(BUNDLE_ALL_COURSES);
-
-            CourseResponse response = new Gson().fromJson(value, CourseResponse.class);
-
-            adapter.setData(response);
-        }
     }
 
     @Override
