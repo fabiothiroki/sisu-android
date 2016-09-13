@@ -10,4 +10,6 @@
     <color name="gray_two">#dadada</color>
     <color name="warm_grey">#9b9b9b</color>
     <color name="warm_grey_two">#8e8e8e</color>
+    <color name="gray_three">#ededed</color>
+    <color name="dark_gray">#4a4a4a</color>
 </resources>
