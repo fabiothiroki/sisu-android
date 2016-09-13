@@ -60,6 +60,7 @@ public class SearchActivity extends AppCompatActivity implements SearchContract 
             searchPresenter = new SearchPresenter(this, response);
 
             searchPresenter.onSearchStringChanged(searchString);
+            getSupportActionBar().setTitle(searchString);
         }
 
     }
@@ -70,6 +71,7 @@ public class SearchActivity extends AppCompatActivity implements SearchContract 
 
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
+
         }
     }
 
