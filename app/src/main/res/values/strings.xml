@@ -6,4 +6,5 @@
     <string name="main_instruction">Escolha o curso e a\ninstituição desejada :)</string>
     <string name="main_search_course">Curso</string>
     <string name="main_search_institution">Instituição</string>
+    <string name="main_continue_button">CONTINUAR</string>
 </resources>
