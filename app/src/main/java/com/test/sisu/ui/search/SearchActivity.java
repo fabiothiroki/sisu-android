@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Indigo on 9/11/16.
  */
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements SearchContract {
 
     public static final String BUNDLE_COURSE = "BUNDLE_COURSE";
     public static final String BUNDLE_ALL_COURSES = "BUNDLE_ALL_COURSES";
@@ -26,6 +26,8 @@ public class SearchActivity extends AppCompatActivity {
 
     private SearchAdapter adapter;
 
+    private SearchPresenter searchPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,32 @@ public class SearchActivity extends AppCompatActivity {
 
         setupActionBar();
         setupRecyclerView();
+        setupPresenter();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        searchPresenter.onDestroy();
+    }
+
+    private void setupPresenter() {
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            String value = extras.getString(BUNDLE_ALL_COURSES);
+
+            CourseResponse response = new Gson().fromJson(value, CourseResponse.class);
+
+            String searchString = extras.getString(BUNDLE_COURSE);
+
+            searchPresenter = new SearchPresenter(this, response);
+
+            searchPresenter.onSearchStringChanged(searchString);
+        }
+
     }
 
     private void setupActionBar() {
@@ -54,6 +82,7 @@ public class SearchActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String value;
+
         if (extras != null) {
             value = extras.getString(BUNDLE_ALL_COURSES);
 
@@ -61,5 +90,10 @@ public class SearchActivity extends AppCompatActivity {
 
             adapter.setData(response);
         }
+    }
+
+    @Override
+    public void setNewDataSource(CourseResponse newDataSource) {
+        adapter.setData(newDataSource);
     }
 }
